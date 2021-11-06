@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ReviewService {
@@ -29,5 +30,10 @@ public class ReviewService {
     @Bean
     public Consumer<String> mySubscriber() {
         return s -> System.out.println("ML RECEIVED: " + s);
+    }
+
+    @Bean
+    public Function<String, String> myProcessor() {
+        return s -> "ML PROCESSED: " + s;
     }
 }
