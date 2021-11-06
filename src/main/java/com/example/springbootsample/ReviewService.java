@@ -1,6 +1,10 @@
 package com.example.springbootsample;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+
+import java.util.Date;
+import java.util.function.Supplier;
 
 public class ReviewService {
     private final ReviewRepository repository;
@@ -14,5 +18,10 @@ public class ReviewService {
         //repository.save(entity);
         //repository.delete(entity);
         //repository.findByProductId(productId);
+    }
+
+    @Bean
+    public Supplier<String> myPublisher() {
+        return () -> new Date().toString();
     }
 }
