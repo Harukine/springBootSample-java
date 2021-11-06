@@ -1,0 +1,13 @@
+server.port: 7001
+
+spring.cloud.function:
+  definition: myPublisher;myProcessor;mySubscriber
+spring.cloud.stream.bindings:
+  myPublisher-out-0:
+    destination: myProcessor-in
+  myProcessor-in-0:
+    destination: myProcessor-in
+  myProcessor-out-0:
+    destination: myProcessor-out
+  mySubscriber-in-0:
+    destination: myProcessor-out
