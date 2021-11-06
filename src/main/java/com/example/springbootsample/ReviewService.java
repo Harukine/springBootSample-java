@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ReviewService {
@@ -23,5 +24,10 @@ public class ReviewService {
     @Bean
     public Supplier<String> myPublisher() {
         return () -> new Date().toString();
+    }
+
+    @Bean
+    public Consumer<String> mySubscriber() {
+        return s -> System.out.println("ML RECEIVED: " + s);
     }
 }
